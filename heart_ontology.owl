@@ -1,0 +1,2926 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://example.org/heart_kb.owl"
+         xmlns="http://example.org/heart_kb.owl#">
+
+<owl:Ontology rdf:about="http://example.org/heart_kb.owl"/>
+
+<owl:DatatypeProperty rdf:about="#hasAge">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasBP">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasChol">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasFBS">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasTarget">
+  <rdfs:domain rdf:resource="#Patient"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#Patient">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#Older">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasAge"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Hypertensive">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBP"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SevereHypertensive">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasBP"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Hyperchol">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasChol"/>
+          <owl:someValuesFrom>
+            <rdfs:Datatype>
+              <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+              <owl:withRestrictions>
+                <rdf:Description>
+                  <rdf:first>
+                    <rdf:Description>
+                      <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</xsd:minInclusive>
+                    </rdf:Description>
+                  </rdf:first>
+                  <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+              </owl:withRestrictions>
+            </rdfs:Datatype>
+          </owl:someValuesFrom>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#HighSugar">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasFBS"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#MetabolicSyndromeSuspect">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <rdf:Description rdf:about="#Older"/>
+        <rdf:Description rdf:about="#HighSugar"/>
+        <rdf:Description rdf:about="#Hyperchol"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SilentHighRisk">
+  <rdfs:subClassOf rdf:resource="#Patient"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Patient"/>
+        <rdf:Description rdf:about="#Older"/>
+        <rdf:Description rdf:about="#SevereHypertensive"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:NamedIndividual rdf:about="#patient_0">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">233</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_1">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">286</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_2">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">229</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_3">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_4">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_5">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">236</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_6">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">268</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_7">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">354</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_8">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">254</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_9">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">203</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_10">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">192</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_11">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">294</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_12">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">256</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_13">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">263</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_14">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">172</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">199</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_15">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">168</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_16">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">229</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_17">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">239</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_18">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">275</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_19">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">266</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_20">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_21">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">283</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_22">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">284</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_23">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">224</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_24">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">206</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_25">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">219</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_26">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">340</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_27">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">226</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_28">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">247</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_29">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">167</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_30">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">239</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_31">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">117</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">230</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_32">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">335</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_33">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_34">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">233</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_35">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">226</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_36">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">177</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_37">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">276</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_38">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">353</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_39">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">243</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_40">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">225</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_41">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">199</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_42">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">302</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_43">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_44">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">330</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_45">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">230</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_46">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">175</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_47">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">243</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_48">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">417</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_49">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_50">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">198</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_51">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">177</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_52">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">290</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_53">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">219</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_54">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">253</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_55">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">266</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_56">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">233</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_57">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">172</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_58">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">273</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_59">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">213</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_60">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">305</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_61">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">142</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">177</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_62">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">216</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_63">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">304</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_64">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">188</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_65">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">282</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_66">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">185</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_67">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">232</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_68">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">170</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">326</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_69">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">231</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_70">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">155</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">269</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_71">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">254</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_72">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">267</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_73">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">248</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_74">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_75">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_76">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">258</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_77">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">308</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_78">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">245</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_79">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">270</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_80">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">104</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">208</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_81">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">264</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_82">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">321</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_83">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">274</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_84">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">325</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_85">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">235</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_86">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">257</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_87">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">216</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_88">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_89">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">256</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_90">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">302</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_91">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">164</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_92">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">231</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_93">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">141</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_94">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">252</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_95">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">255</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_96">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">239</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_97">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">258</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_98">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">201</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_99">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">122</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">222</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_100">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">115</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">260</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_101">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">182</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_102">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">303</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_103">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">265</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_104">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">188</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_105">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">309</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_106">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">177</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_107">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">229</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_108">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">260</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_109">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">219</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_110">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">307</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_111">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">249</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_112">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">186</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_113">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">341</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_114">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">263</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_115">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">203</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_116">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_117">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">183</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_118">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">330</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_119">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">254</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_120">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">256</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_121">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">407</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_122">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">222</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_123">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">217</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_124">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">65</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">282</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_125">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_126">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">288</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_127">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">239</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_128">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_129">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">209</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_130">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">258</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_131">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">227</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_132">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">29</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_133">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">261</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_134">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">122</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">213</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_135">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">135</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_136">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">174</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_137">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">281</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_138">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">198</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_139">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">245</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_140">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">221</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_141">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">170</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">288</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_142">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">205</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_143">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">309</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_144">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_145">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">243</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_146">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">165</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">289</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_147">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_148">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">308</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_149">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">318</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_150">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">298</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_151">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">102</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">265</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_152">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">115</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">564</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_153">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">289</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_154">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_155">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">322</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_156">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">299</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_157">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">300</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_158">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">293</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_159">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">277</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_160">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">101</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_161">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">77</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">304</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_162">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">214</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_163">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">248</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_164">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">255</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_165">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">207</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_166">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_167">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">288</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_168">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">126</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">282</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_169">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_170">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">269</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_171">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">142</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">226</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_172">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">174</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">249</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_173">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">394</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_174">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_175">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">274</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_176">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">233</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_177">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">184</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_178">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">315</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_179">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_180">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">48</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">274</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_181">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">409</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_182">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">244</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_183">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">178</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">270</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_184">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">158</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">305</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_185">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">195</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_186">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_187">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">246</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_188">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">192</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">283</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_189">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">254</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_190">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">129</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">196</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_191">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">298</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_192">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">247</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_193">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">294</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_194">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_195">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">299</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_196">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">69</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_197">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">236</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_198">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">244</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_199">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">273</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_200">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">254</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_201">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">325</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_202">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">126</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_203">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">313</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_204">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">211</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_205">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">142</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">309</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_206">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">259</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_207">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">144</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">200</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_208">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">262</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_209">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">244</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_210">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">215</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_211">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">231</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_212">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">214</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_213">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">178</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">228</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_214">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">230</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_215">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">193</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_216">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_217">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">243</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_218">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">303</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_219">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">271</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_220">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">268</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_221">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">267</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_222">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">94</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">199</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_223">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">53</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">123</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">282</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_224">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">269</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_225">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">34</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">210</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_226">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_227">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">277</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_228">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">206</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_229">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_230">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">136</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">196</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_231">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">327</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_232">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">149</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_233">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">74</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">269</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_234">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">201</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_235">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">54</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">122</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">286</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_236">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">283</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_237">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">249</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_238">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">271</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_239">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">295</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_240">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">235</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_241">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">126</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">306</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_242">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">269</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_243">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_244">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">178</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_245">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">237</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_246">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">234</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_247">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">275</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_248">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_249">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">62</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">208</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_250">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">201</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_251">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">146</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">218</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_252">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">263</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_253">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">51</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">295</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_254">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">43</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">115</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">303</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_255">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">209</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_256">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">106</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_257">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">76</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_258">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">70</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">156</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">245</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_259">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">261</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_260">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">242</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_261">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">136</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">319</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_262">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">60</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">150</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_263">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">226</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_264">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">166</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_265">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">136</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">315</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_266">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">52</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_267">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">126</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">218</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_268">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">223</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_269">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">42</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">180</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_270">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">207</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_271">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">160</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">228</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_272">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">46</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">311</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_273">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">71</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">149</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_274">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">204</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_275">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">64</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">170</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">227</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_276">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">66</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">146</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">278</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_277">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">39</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_278">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">154</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">232</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_279">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_280">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">335</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_281">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">47</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">253</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_282">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">128</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">205</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_283">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">35</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">122</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">192</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_284">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">61</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">148</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">203</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_285">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">114</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">318</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_286">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">170</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">225</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_287">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">58</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">125</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">220</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_288">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">221</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_289">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">56</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">240</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_290">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">67</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">152</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">212</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_291">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">55</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">132</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">342</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_292">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">169</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_293">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">187</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_294">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">63</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">197</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_295">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">41</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">120</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">157</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_296">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">59</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">164</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">176</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_297">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">140</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">241</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_298">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">264</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_299">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">68</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">144</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">193</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_300">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">131</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_301">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">57</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">236</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</hasTarget>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="#patient_302">
+  <rdf:type rdf:resource="#Patient"/>
+  <hasAge rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">38</hasAge>
+  <hasBP rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">138</hasBP>
+  <hasChol rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">175</hasChol>
+  <hasFBS rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasFBS>
+  <hasTarget rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</hasTarget>
+</owl:NamedIndividual>
+
+
+</rdf:RDF>
