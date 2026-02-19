@@ -9,7 +9,7 @@ L'obiettivo è prevedere il rischio di malattie cardiache a partire dal dataset 
 
 ## Struttura della Repository
 - `data/`: Contiene i dataset originali e quelli arricchiti dalla KB.
-- `docs/`: Contiene la relazione dettagliata del progetto (`Relazione_HeartNeuroSy.pdf`).
+- `docs/`: Contiene la documentazion dettagliata del progetto.
 - `images/`: Contiene i grafici (PNG) di valutazione delle performance.
 - `build_kb.py`: Script per la creazione dell'ontologia e inferenza tramite reasoner (Pellet/HermiT).
 - `2_model_comparison.py`: Confronto tra modelli su dataset base vs arricchito.
